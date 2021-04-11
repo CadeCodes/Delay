@@ -7,7 +7,7 @@ import urllib.parse
 from time import perf_counter
 init(convert=True)
 #vars
-ver = "Literal First Release, prob has millions of bugs"
+ver = "Beta, Lots of commits going on!"
 ping = 0
 pings = []
 tempping = 0
@@ -25,6 +25,8 @@ def setupPing():
     if (tempping == "auto"):
         loop = asyncio.get_event_loop()
         loop.run_until_complete(main())
+        print()
+        print (Fore.BLUE + " [info]" + Fore.CYAN + " Ping detected was " + Fore.WHITE + str(sum(pings)/5) + Fore.CYAN + " ms, This value will be used as your ping.")
         return sum(pings)/5
     else:
         print()
