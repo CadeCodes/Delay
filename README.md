@@ -18,4 +18,4 @@ Follow the prompts given by the program and it will calculate the delay for you.
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## License
-[MIT](https://github.com/MythologicalMC/Delay/LICENSE)
+[MIT](https://github.com/MythologicalMC/Delay/blob/main/LICENSE)
