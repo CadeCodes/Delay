@@ -19,7 +19,7 @@ def setupPing():
     print (Fore.BLUE, end='')
     print(" [setup]",end='')
     print(Fore.CYAN, end='')
-    tempping = input( ''' What is your latency when connecting to api.mojang.com?
+    tempping = input( ''' What is your latency when connecting to the Minecraft API?
          You can also type "auto" for ping detection! ''')
             #See if they want auto ping detection or manual
     if (tempping == "auto"):
@@ -43,8 +43,10 @@ def setupSearches():
 def calc():
     print()
     print(Fore.BLUE + " [calculator]" + Fore.CYAN + " Calculating delay using ping: " + Fore.WHITE + str(ping) + Fore.CYAN + ", and searches: " + Fore.WHITE + str(searches) + Fore.CYAN)
-    if (int(searches) >= 100):
-        searchdiv = int(searches) / 10
+    if (int(searches) >= 1000):
+        print()
+        print (Fore.BLUE + " [info]" + Fore.CYAN + " Since the amount of searches for the name is over 1000, we will account for server lag by adding some extra ms to your delay.")
+        searchdiv = int(searches) / 30
         possibledelay = base + int(ping) + searchdiv
         return possibledelay
     else:
