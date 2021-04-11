@@ -75,7 +75,7 @@ async def main():
     await check("https://api.minecraftservices.com/minecraft")
 
 #cool ascii text thing/creds
-os.system("cls")
+os.system("clear")
 print(Fore.LIGHTBLUE_EX + '''
        _      _
       | |    | |
