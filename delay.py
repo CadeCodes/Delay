@@ -80,12 +80,12 @@ def out():
         if (int(dropTime) > float(reqTime)):
             changeDel =  (int(dropTime) - float(reqTime)) * 100
             print (Fore.BLUE + " [DELAY ADJUST]" + Fore.CYAN + " You were too early. Try: " + Fore.WHITE + str(delay + changeDel) + Fore.CYAN + " ms instead.")
+            input(" Press any key to continue...")
         if (int(dropTime) < float(reqTime)):
             changeDel =  (float(reqTime) - int(dropTime)) * 100
             print (Fore.BLUE + " [DELAY ADJUST]" + Fore.CYAN + " You were too late. Try: " + Fore.WHITE + str(delay - changeDel) + Fore.CYAN + " ms instead.")
+            input(" Press any key to continue...")
         else:
-            print (Fore.RED + " [ERROR]" + Fore.CYAN + " Unknown Error")
-            time.sleep(3)
             exit()
     else:
      print (Fore.RED + " [ERROR]" + Fore.CYAN + " ENTER Y OR N!")
@@ -117,7 +117,7 @@ print(Fore.LIGHTBLUE_EX + '''
   ██║  ██║█████╗  ██║     ███████║ ╚████╔╝
   ██║  ██║██╔══╝  ██║     ██╔══██║  ╚██╔╝
   ██████╔╝███████╗███████╗██║  ██║   ██║
-  ╚═════╝ ╚══════╝╚══════╝╚═╝  ╚═╝   ╚═╝   
+  ╚═════╝ ╚══════╝╚══════╝╚═╝  ╚═╝   ╚═╝
 ''')
 print(Fore.LIGHTBLUE_EX + "  By Mythological, Version: " + ver)
 print()
