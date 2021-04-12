@@ -4,6 +4,7 @@ import subprocess
 from colorama import init,Fore, Back, Style
 import asyncio
 import urllib.parse
+import time
 from time import perf_counter
 init(convert=True)
 #vars
@@ -12,8 +13,11 @@ ping = 0
 pings = []
 tempping = 0
 searches = 0
-base = 400
+base = 300
 delay = 0
+gotQ = ""
+dropTime = 0
+reqTime = 0
 #funcs
 def setupPing():
     print (Fore.BLUE, end='')
@@ -55,13 +59,44 @@ def calc():
 def out():
     print()
     print (Fore.BLUE + " [DELAY]" + Fore.CYAN + " Your approximate delay to use is: " + Fore.WHITE + str(delay) + Fore.CYAN + " ms. This is an estimate, and you should lower or higher it depending on request times." )
+    print()
+    print (Fore.BLUE, end='')
+    print(" [DELAY ADJUST]",end='')
+    print(Fore.CYAN, end='')
+    gotQ = input(" Did you get the name? (Y/N) (Caps): ")
+    if (gotQ == "Y"):
+        print (Fore.BLUE + " [DELAY ADJUST]" + Fore.CYAN + " Good job! Closing in 3 seconds.")
+        time.sleep(3)
+        exit()
+    if (gotQ == "N"):
+        print (Fore.BLUE, end='')
+        print(" [DELAY ADJUST]",end='')
+        print(Fore.CYAN, end='')
+        dropTime = input(" Sorry to hear that. What time did the name drop? (Seconds/60) (ex. 23): ")
+        print (Fore.BLUE, end='')
+        print(" [DELAY ADJUST]",end='')
+        print(Fore.CYAN, end='')
+        reqTime = input(" And what time was your last request at? (Seconds.XXXX/60) (ex. 22.9874): ")
+        if (int(dropTime) > float(reqTime)):
+            changeDel =  (int(dropTime) - float(reqTime)) * 100
+            print (Fore.BLUE + " [DELAY ADJUST]" + Fore.CYAN + " You were too early. Try: " + Fore.WHITE + str(delay + changeDel) + Fore.CYAN + " ms instead.")
+        if (int(dropTime) < float(reqTime)):
+            changeDel =  (float(reqTime) - int(dropTime)) * 100
+            print (Fore.BLUE + " [DELAY ADJUST]" + Fore.CYAN + " You were too late. Try: " + Fore.WHITE + str(delay - changeDel) + Fore.CYAN + " ms instead.")
+        else:
+            print (Fore.RED + " [ERROR]" + Fore.CYAN + " Unknown Error")
+            time.sleep(3)
+            exit()
+    else:
+     print (Fore.RED + " [ERROR]" + Fore.CYAN + " ENTER Y OR N!")
+     time.sleep(3)
+     exit()
 #THIS PING CHECK CODE IS FROM kingscratss#3407 on discord!!
 async def check(url: str):
     async def x():
         uri = urllib.parse.urlparse(url)
         reader, writer = await asyncio.open_connection(uri.hostname, 443, ssl=True)
         writer.write(f"GET {uri.path or '/'} HTTP/1.1\r\nHost:{uri.hostname}\r\n\r\n".encode())
-
         start = perf_counter()
         await writer.drain()
 
@@ -75,7 +110,7 @@ async def main():
     await check("https://api.minecraftservices.com/minecraft")
 
 #cool ascii text thing/creds
-os.system("clear")
+os.system("cls")
 print(Fore.LIGHTBLUE_EX + '''
        _      _
       | |    | |
