@@ -50,7 +50,7 @@ def calc():
     if (int(searches) >= 1000):
         print()
         print (Fore.BLUE + " [info]" + Fore.CYAN + " Since the amount of searches for the name is over 1000, we will account for server lag by adding some extra ms to your delay.")
-        searchdiv = int(searches) / 30
+        searchdiv = int(searches) / 50
         possibledelay = base + int(ping) + searchdiv
         return possibledelay
     else:
