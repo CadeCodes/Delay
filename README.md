@@ -3,6 +3,8 @@
 Delay is a extremely simple calculation tool to find the right delay for [MCSniperPY](https://github.com/MCsniperPY/MCsniperPY).
 ## Disclaimer
 This program is still in heavy beta! Please do not rely on it for your exact delay. As the #info channel in the [MCSniperPY Discord](https://discord.com/invite/yp69ZqtxNk) states, there is no best delay based on ping and searches. You will still need to adjust it based on your request times and if they were late or early.
+
+AS OF 4/11/21 You can now do that within the program after getting your first delay!
 ## Installation
 
 Simply download delay.py and run it:
