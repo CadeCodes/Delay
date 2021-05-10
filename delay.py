@@ -8,12 +8,12 @@ import time
 from time import perf_counter
 init(convert=True)
 #vars
-ver = "Beta, Lots of commits going on!"
+ver = "1.0 Stable!"
 ping = 0
 pings = []
 tempping = 0
 searches = 0
-base = 300
+base = 200
 delay = 0
 gotQ = ""
 dropTime = 0
@@ -47,10 +47,10 @@ def setupSearches():
 def calc():
     print()
     print(Fore.BLUE + " [calculator]" + Fore.CYAN + " Calculating delay using ping: " + Fore.WHITE + str(ping) + Fore.CYAN + ", and searches: " + Fore.WHITE + str(searches) + Fore.CYAN)
-    if (int(searches) >= 1000):
+    if (int(searches) >= 10000):
         print()
         print (Fore.BLUE + " [info]" + Fore.CYAN + " Since the amount of searches for the name is over 1000, we will account for server lag by adding some extra ms to your delay.")
-        searchdiv = int(searches) / 50
+        searchdiv = int(searches) / 1000
         possibledelay = base + int(ping) + searchdiv
         return possibledelay
     else:
