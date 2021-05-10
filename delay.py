@@ -49,7 +49,7 @@ def calc():
     print(Fore.BLUE + " [calculator]" + Fore.CYAN + " Calculating delay using ping: " + Fore.WHITE + str(ping) + Fore.CYAN + ", and searches: " + Fore.WHITE + str(searches) + Fore.CYAN)
     if (int(searches) >= 10000):
         print()
-        print (Fore.BLUE + " [info]" + Fore.CYAN + " Since the amount of searches for the name is over 1000, we will account for server lag by adding some extra ms to your delay.")
+        print (Fore.BLUE + " [info]" + Fore.CYAN + " Since the amount of searches for the name is over 10000, we will account for server lag by adding some extra ms to your delay.")
         searchdiv = int(searches) / 1000
         possibledelay = base + int(ping) + searchdiv
         return possibledelay
